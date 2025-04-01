@@ -5,7 +5,7 @@ const Home = () => {
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/info")
+    axios.get("https://springmarciosite.onrender.com")
       .then(response => setInfo(response.data))
       .catch(error => console.error("Erro ao buscar info:", error));
   }, []);

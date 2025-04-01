@@ -5,7 +5,7 @@ const Home = () => {
   const [info, setInfo] = useState(null);
 
   useEffect(() => {
-    axios.get("https://springmarciosite.onrender.com")
+    axios.get("https://springmarciosite.onrender.com/info") 
       .then(response => setInfo(response.data))
       .catch(error => console.error("Erro ao buscar info:", error));
   }, []);
@@ -16,7 +16,11 @@ const Home = () => {
       {info ? (
         <div>
           <p>Status: {info.status}</p>
-          <img src={info.message} alt="Imagem aleatória" style={{ width: "300px" }} />
+          {info.message ? (
+            <img src={info.message} alt="Imagem aleatória" style={{ width: "300px" }} />
+          ) : (
+            <p>Imagem não encontrada</p>
+          )}
         </div>
       ) : (
         <p>Carregando...</p>
